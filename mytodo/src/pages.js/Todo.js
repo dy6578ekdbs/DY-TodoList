@@ -5,12 +5,19 @@ import Form from '../components/Form';
 const Todo = () => {
 
   const [newtodo, setNewtodo] = useState('');
-  const [todos, setTodos] = useState([]);
+  const loadedTodos =  localStorage.getItem("todos");
+  const [todos, setTodos] = useState(JSON.parse(loadedTodos));
 
+  useEffect(() => {
+   localStorage.setItem("todos", JSON.stringify(todos));
+
+  }, [todos]);
+ 
   const removeTodo = (id) => {
     setTodos(todos.filter(todo => {
       return todo.id !== id;
-    }))
+    }));
+   
   };
 
   const onSubmit = (event) => {
@@ -18,7 +25,7 @@ const Todo = () => {
     setTodos([...todos,{
       text:newtodo,
       id:Date.now(),
-    }])
+    }]);
     setNewtodo('');
   }
 
