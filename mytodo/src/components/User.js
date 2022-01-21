@@ -1,18 +1,48 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
+import UserForm from "./UserForm";
 const User = ({
-    onSubmit,
-    text,
-    placeholder,
-    value,
-    onChange,
+  
 }) => {
+    
+  const loadedUser = JSON.parse(localStorage.getItem("user"));
+  const [user,setUser] = useState(loadedUser);
+
+  const [login, setLogin] = useState(false);
+
+  useEffect(()=> {
+    if(loadedUser === null){
+      setLogin(!login);
+    }
+  },[]);
+  
+  
+  const [newuser, setNewuser] = useState('');
+
+  useEffect(()=>{
+    localStorage.setItem("user", JSON.stringify(user));
+  },[user])
+  
+  const onSubmitUser = (event) => {
+  
+    setUser(newuser);
+    setNewuser('');
+  }
+
+
 return(
     <>
-     <form onSubmit={onSubmit}>
-      <input type={text} placeholder={placeholder} value={value} onChange={onChange}/>
-      <br />
-      <button type='submit'>로그인</button>
-    </form>
+    {login ? 
+      
+      <UserForm
+        type='text'
+        placeholder='username'
+        value={newuser}
+        onChange={(e) => setNewuser(e.target.value)}
+        onSubmit={onSubmitUser}
+        /> 
+
+        : <p>{user}</p>}
+
     </>
 );
 };
