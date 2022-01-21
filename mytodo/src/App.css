@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.week {
+  display: flex;
+}
+
+#week-day {
+  list-style: none;
+  margin: 3px;
+}

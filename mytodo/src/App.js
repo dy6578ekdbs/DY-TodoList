@@ -40,18 +40,22 @@ function App() {
   
   return (
     <>
-    
-      
       
       <Router>
 
-      <ul>
-        <li><Link className="navbar-brand" to="/">Todo</Link> </li>
-        <li><Link className="navbar-brand" to="/calendar">Cal</Link></li>
-        <li>더보기</li>
+      <div>
+      <ul className='week'>
+        <li id='week-day'><Link className="weekly-button" to="/schedul-mon">월</Link></li>
+        <li id='week-day'><Link className="weekly-button" to="/schedul-tue">화</Link></li>
+        <li id='week-day'><Link className="weekly-button" to="/schedul-wen">수</Link></li>
+        <li id='week-day'><Link className="weekly-button" to="/schedul-thu">목</Link></li>
+        <li id='week-day'><Link className="weekly-button" to="/schedul-fri">금</Link></li>
+        <li id='week-day'><Link className="weekly-button" to="/schedul-sat">토</Link></li>
+        <li id='week-day'><Link className="weekly-button" to="/schedul-sun">일</Link></li>
       </ul>
+    </div>
 
-      <p>Name</p>
+
 
       {login ? 
       <User 

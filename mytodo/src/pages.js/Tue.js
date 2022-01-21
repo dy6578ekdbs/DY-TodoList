@@ -2,18 +2,17 @@ import React, {useState,useEffect} from 'react';
 import TodoList from '../components/TodoList';
 import Form from '../components/Form';
 
-const Todo = () => {
-  
-  const setday = "mon";
 
+const Tue = () => {
+
+ const setday = "tue";
+
+  
   const [newtodo, setNewtodo] = useState('');
   const loadedTodos =  localStorage.getItem("todos");
   const [todos, setTodos] = useState(JSON.parse(loadedTodos));
 
-  useEffect(() => {
-   localStorage.setItem("todos", JSON.stringify(todos));
-
-  }, [todos]);
+  const [filterTodo, setFilterTodo] = useState([]);
  
   const removeTodo = (id) => {
     setTodos(todos.filter(todo => {
@@ -24,18 +23,30 @@ const Todo = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-
     setTodos([...todos,{
       text:newtodo,
       id:Date.now(),
       day:setday,
     }]);
-
     setNewtodo('');
   }
 
 
-  const drawTodos = todos.map(
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));}, [todos]);
+
+ useEffect(() => {
+    setFilterTodo(
+            
+            todos.filter(todo => {
+        return todo.day === "tue";
+        })
+        
+        );
+   },[todos]);
+
+  
+  const drawTodos = filterTodo.map(
     todo =>{
       return(
        <TodoList todo={todo} key={todo.text} removeTodo={removeTodo}/>
@@ -45,24 +56,22 @@ const Todo = () => {
 
   return (
     <>
-  
+    <p>화요일</p>
     
-    {/* 투두 폼 */}
+    
       <Form 
         type='text'
         placeholder='task'
         value={newtodo}
         onChange={(e) => setNewtodo(e.target.value)}
         onSubmit={onSubmit}
-        day={setday}
         />
   
-    {/* 투두 출력 */}
+   
     <div>{drawTodos}</div> 
-
 
     </>
   );
 }
 
-export default Todo;
+export default Tue;
