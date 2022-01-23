@@ -1,4 +1,5 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
+import Mon from '../pages.js/Mon';
 import routes from '../routes';
 
 import {
@@ -11,7 +12,9 @@ import {
 const Weekly = (
   
 ) => {
-
+  
+  const [settingday,setSettingDay] = useState("mon");
+  
   const weekArray = ["일","월","화","수","목","금","토"];
   let now = new Date();
   let year = now.getFullYear();
@@ -30,61 +33,63 @@ const Weekly = (
 
       let weekNum = getWeekOfMonth(now);
     
-
+  
+     
     return(
         <>
+    
         <p>오늘은 {year}년 {month}월 {weekNum}째주 입니다.</p>
          <ul className='week'>
         <Link className="weekly-button" to="/schedul-mon">
-          <li id='week-day'>
+          <li id='week-day' onClick={() =>setSettingDay("mon")}>
             <p id="day">월</p>
             <i class="fas fa-paw"></i>
             <p id="date">{monday}</p>
           </li>
           </Link>
-        <Link className="weekly-button" to="/schedul-tue">
-          <li id='week-day'>
+        
+          <li id='week-day' onClick={() =>setSettingDay("tue")} >
             <p id="day">화</p>
             <i class="fas fa-paw"></i>
             <p id="date">{monday +1}</p>
           </li>
-          </Link>
-        <Link className="weekly-button" to="/schedul-wen">
-        <li id='week-day'>
+        
+        <li id='week-day' onClick={() =>setSettingDay("wen")}>
             <p id="day">수</p>
             <i class="fas fa-paw"></i>
             <p id="date">{monday +2}</p>
           </li>
-          </Link>
-        <Link className="weekly-button" to="/schedul-thu">
-        <li id='week-day'>
+         
+       
+        <li id='week-day' onClick={() =>setSettingDay("thu")}>
             <p id="day">목</p>
             <i class="fas fa-paw"></i>
             <p id="date">{monday +3}</p>
           </li>
-          </Link>
-        <Link className="weekly-button" to="/schedul-fri">
-        <li id='week-day'>
+       
+        <li id='week-day' onClick={() =>setSettingDay("fri")}>
             <p id="day">금</p>
             <i class="fas fa-paw"></i>
             <p id="date">{monday +4}</p>
           </li>
-          </Link>
-        <Link className="weekly-button" to="/schedul-sat">
-        <li id='week-day'>
+        
+        <li id='week-day' onClick={() =>setSettingDay("sat")}>
             <p id="day">토</p>
             <i class="fas fa-paw"></i>
             <p id="date">{monday +5}</p>
           </li>
-          </Link>
-        <Link className="weekly-button" to="/schedul-sun">
-        <li id='week-day'>
+        
+        <li id='week-day' onClick={() =>setSettingDay("sun")}>
             <p id="day">일</p>
             <i class="fas fa-paw"></i>
             <p id="date">{monday +6}</p>
           </li>
-          </Link>
+        
       </ul>
+
+
+      <Mon settingday={settingday}/>
+
         </>
     );
 };

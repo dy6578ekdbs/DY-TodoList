@@ -3,17 +3,16 @@ import TodoList from '../components/TodoList';
 import Form from '../components/Form';
 
 
-const Mon = () => {
+const Mon = ({
+  settingday,
+}) => {
 
-    const setday = "mon";
-
-  
     const [newtodo, setNewtodo] = useState('');
     const loadedTodos =  localStorage.getItem("todos");
     const [todos, setTodos] = useState(JSON.parse(loadedTodos));
-  
     const [filterTodo, setFilterTodo] = useState([]);
-   
+
+
     const removeTodo = (id) => {
       setTodos(todos.filter(todo => {
         return todo.id !== id;
@@ -26,7 +25,7 @@ const Mon = () => {
       setTodos([...todos,{
         text:newtodo,
         id:Date.now(),
-        day:setday,
+        day:settingday,
       }]);
       setNewtodo('');
     }
@@ -39,11 +38,11 @@ const Mon = () => {
       setFilterTodo(
               
               todos.filter(todo => {
-          return todo.day === "mon";
+          return todo.day === settingday;
           })
           
           );
-     },[todos]);
+     },[todos,settingday]);
   
     
     const drawTodos = filterTodo.map(
@@ -56,7 +55,7 @@ const Mon = () => {
   
     return (
       <>
-      <p>월요일</p>
+      <p>{settingday}</p>
       
       
         <Form 

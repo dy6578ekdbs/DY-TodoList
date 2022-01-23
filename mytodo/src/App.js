@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import routes from './routes';
 import './App.css';
 import User from './components/User'
 import Weekly from './components/Weekly'
@@ -10,6 +9,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+
 
 function App() {
 
@@ -22,15 +22,17 @@ function App() {
       
       <Weekly />
     
-      <Switch>
+      {/* <Switch>
                 {routes.map(route => {
                   return(
                     <Route path={route.path} key={route.path} exact>
-                      <route.component />
+                      <route.component settingday={settingday}/>
                     </Route>
                   )
                 })}
-    </Switch>
+      </Switch> */}
+      
+      
 
 
     </Router>
