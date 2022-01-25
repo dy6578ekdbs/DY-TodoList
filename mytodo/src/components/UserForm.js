@@ -9,9 +9,9 @@ const UserForm = ({
 return(
     <>
      <form onSubmit={onSubmit}>
-      <input type={text} placeholder={placeholder} value={value} onChange={onChange}/>
+      <input required minlength="1" type={text} placeholder={placeholder} value={value} onChange={onChange}/>
       <br />
-      <button type='submit'>로그인</button>
+      <button type="submit" class="btn btn-warning">Login</button>
     </form>
     </>
 );

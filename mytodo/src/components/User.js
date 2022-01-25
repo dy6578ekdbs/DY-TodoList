@@ -6,6 +6,7 @@ const User = ({
     
   const loadedUser = JSON.parse(localStorage.getItem("user"));
   const [user,setUser] = useState(loadedUser);
+  const [newuser, setNewuser] = useState('');
 
   const [login, setLogin] = useState(false);
 
@@ -15,18 +16,16 @@ const User = ({
     }
   },[]);
   
-  
-  const [newuser, setNewuser] = useState('');
 
   useEffect(()=>{
     localStorage.setItem("user", JSON.stringify(user));
   },[user])
   
   const onSubmitUser = (event) => {
-  
     setUser(newuser);
     setNewuser('');
   }
+
 
 
 return(
@@ -41,7 +40,12 @@ return(
         onSubmit={onSubmitUser}
         /> 
 
-        : <p>{user}</p>}
+        :
+        <> 
+        <p>{user}</p>
+        <button type="button" className={"btn btn-warning"} onClick={()=> setLogin(!login)}>Logout</button>
+        </>
+        }
 
     </>
 );
