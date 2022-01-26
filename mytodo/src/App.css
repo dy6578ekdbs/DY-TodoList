@@ -37,7 +37,9 @@
   }
 }
 
-
+#body {
+  height: 896px;
+}
 
 .week {
   display: flex;
@@ -94,4 +96,12 @@ menu{
 
 menu a {
   margin-top: 20px;
+}
+
+.slide {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#user-button{
+  border-radius: 50%;
 }

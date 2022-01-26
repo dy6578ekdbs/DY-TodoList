@@ -16,32 +16,40 @@ function App() {
 
   const modalEl = useRef(); // 
   const [isOpen, setOpen] = useState(false);
-
-
-  useEffect(()=>{
-    console.log(isOpen);
-  })
   
- 
+ const [style,setStyle] = useState('');
+
+  const openMenu = () => {
+    setOpen(true);
+    setStyle("slide");
+  }
+  
+  const closeMenu = () =>{
+    setOpen(false);
+    setStyle('');
+  }
 
   return (
-    <>
+    <div id="body" className={`${style}`}>
     <Router>
     
-
+    
     <navbar >
        <i class="far fa-heart fa-lg"></i>
        <i class="fas fa-inbox fa-lg"></i>
-       <i class="fas fa-bars fa-lg" onClick={()=> setOpen(true)}></i>
+       <i class="fas fa-bars fa-lg" onClick={()=> openMenu()}></i>
     </navbar> 
 
+    <button id="user-button" type="button" class="btn btn-outline-secondary">O</button>
+    <button id="user-button" type="button" class="btn btn-outline-secondary">+</button>
+    
     {
       isOpen ?
 
       <menu ref={modalEl}>
         <a>link</a>
         <a>에에</a>
-        <a onClick={()=> setOpen(false)}>x</a>
+        <a onClick={()=> closeMenu()}>x</a>
       </menu> 
       
       : <></>
@@ -69,7 +77,7 @@ function App() {
 
 
     </Router>
-    </>
+    </div>
   );
 }
 
