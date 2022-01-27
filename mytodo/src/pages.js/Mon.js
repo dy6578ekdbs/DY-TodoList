@@ -55,8 +55,10 @@ const Mon = ({
   
     return (
       <>
-      <p>{settingday}</p>
       
+      <div className='todoform'>
+  
+      <p>{settingday}</p>
       
         <Form 
           type='text'
@@ -68,7 +70,7 @@ const Mon = ({
     
      
       <div>{drawTodos}</div> 
-  
+    </div>
       </>
     );
 }
