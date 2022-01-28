@@ -47,7 +47,7 @@
   padding: 0px;
 }
 
-#week-day {
+.week-day {
   height: 50px;
   width: 50px;
 
@@ -58,8 +58,13 @@
   margin: 3px;
 
   text-align: center;
-}
 
+
+}
+.week-day:active{
+  box-shadow: 1px 1px 0 rgb(0,0,0,0.5); 
+
+}
 #day {
   margin:0px;
   padding: 0px;
@@ -108,4 +113,10 @@ menu a {
 
 .todoform {
   margin-top: 30px;
+}
+
+.active {
+  text-decoration: underline;
+  text-underline-position: under;
+  text-decoration-color: red;
 }

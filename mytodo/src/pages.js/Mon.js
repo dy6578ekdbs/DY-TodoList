@@ -57,8 +57,8 @@ const Mon = ({
       <>
       
       <div className='todoform'>
-  
-      <p>{settingday}</p>
+      
+      <p>오늘은 {settingday}</p>
       
         <Form 
           type='text'
