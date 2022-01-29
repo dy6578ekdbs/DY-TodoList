@@ -12,6 +12,12 @@ const Mon = ({
     const [todos, setTodos] = useState(JSON.parse(loadedTodos));
     const [filterTodo, setFilterTodo] = useState([]);
 
+    const [categorys,setCategorys] = useState([
+     {class:"study"},{class:"date"},{class:"work"},
+    
+    ]);
+
+    const [newcategory,setNewCategory] = useState("");
 
     const removeTodo = (id) => {
       setTodos(todos.filter(todo => {
@@ -19,14 +25,20 @@ const Mon = ({
       }));
      
     };
-  
+    
+    // 투두리스트 객체 생성 부분 
     const onSubmit = (event) => {
       event.preventDefault();
+
+
       setTodos([...todos,{
         text:newtodo,
         id:Date.now(),
         day:settingday,
+        category:newcategory,
+        check:false,
       }]);
+
       setNewtodo('');
     }
   
@@ -44,15 +56,43 @@ const Mon = ({
           );
      },[todos,settingday]);
   
-    
-    const drawTodos = filterTodo.map(
-      todo =>{
-        return(
-         <TodoList todo={todo} key={todo.text} removeTodo={removeTodo}/>
-        );
-      }
-    );
+    // // todo 그리기
+    // const drawTodos = filterTodo.map(
+    //   todo =>{
+    //     return(
+    //      <TodoList todo={todo} key={todo.text} removeTodo={removeTodo}/>
+    //     );
+    //   }
+    // );
   
+
+
+    const Forms = categorys.map(category => {
+     
+      return(
+        <>
+       
+        <Form 
+          type='text'
+          placeholder='task'
+          value={newtodo}
+          onChange={(e) => setNewtodo(e.target.value)}
+          onSubmit={onSubmit}
+
+
+          categorys={category.class}
+
+          onClick={(e)=>setNewCategory(e.target.value)}
+        removeTodo={removeTodo}
+          filterTodo={filterTodo}
+        
+          />
+          
+          </>
+      );
+    })
+
+
     return (
       <>
       
@@ -60,16 +100,9 @@ const Mon = ({
       
       <p>오늘은 {settingday}</p>
       
-        <Form 
-          type='text'
-          placeholder='task'
-          value={newtodo}
-          onChange={(e) => setNewtodo(e.target.value)}
-          onSubmit={onSubmit}
-          />
+      {Forms}
+        
     
-     
-      <div>{drawTodos}</div> 
     </div>
       </>
     );

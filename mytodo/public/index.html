@@ -46,12 +46,18 @@
     -->
 
     <script>
-
-      function onClinkWeek() {
-        
-      }
+      
 
         $( document ).ready( function() {
+
+         $(window).click(function(e){
+          if(!$(e.target).hasClass("category-button")) { 
+           $(".form" ).removeClass("yes");
+          }
+
+
+         });
+          
           $( '.week-day' ).click( 
             function(){
                let id_check = $(this).attr("id");
@@ -60,8 +66,19 @@
             }
           
           )
+
+          $( '.category-button' ).click( 
+            function(){
+               let class_check = $(this).attr("value");
+
+               $(".form" ).addClass("yes");
+
+              $( '.form' ).not( "#"+class_check).removeClass("yes");
+          
+            }
+          
+          )
             
-     
       } );
     </script>
   </body>

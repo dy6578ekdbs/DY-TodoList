@@ -120,3 +120,17 @@ menu a {
   text-underline-position: under;
   text-decoration-color: red;
 }
+
+.todoform{
+  display: flex;
+  flex-direction: column;
+}
+
+.form{
+  display: none;
+}
+
+.yes {
+  display: flex;
+}
+
