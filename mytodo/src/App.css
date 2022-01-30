@@ -126,7 +126,28 @@ menu a {
   flex-direction: column;
 }
 
-.form{
+
+
+.category-button {
+  width: 110px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+
+  border: solid 1px;
+  border-color: rgba(219, 217, 217,0.8);
+  border-radius: 3px;
+  background-color: rgba(219, 217, 217,0.4);
+}
+
+.category-button p {
+  margin: 0px;
+}
+
+
+.form {
   display: none;
 }
 
@@ -134,3 +155,14 @@ menu a {
   display: flex;
 }
 
+input {
+  border: none;
+  border-bottom: solid gray 1px;
+  background-color: none;
+}
+
+.todoButton {
+  border:none;
+  background-color: none;
+  color: gray;
+}

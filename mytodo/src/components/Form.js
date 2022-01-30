@@ -1,5 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import TodoList from './TodoList';
+import jQuery from "jquery";
+window.$ = window.jQuery = jQuery;
+
+
+
+const useClick = onClick => {
+    const element = useRef();
+
+    useEffect(()=>{
+        if(element.current){
+            element.current.addEventListener("click",onClick);
+        }
+    });
+
+    return element;
+}
 
 const Form = ({
     text,
@@ -14,7 +30,18 @@ const Form = ({
 
 }) => {
 
-    
+    const favoriteBtn = useRef(null);
+  const onFavoriteToggle = () => {
+    favoriteBtn.current.style.backgroundColor = '#959595';
+    favoriteBtn.current.style.border = '#959595';
+  } 
+
+
+    const Study = (e)=> {
+        
+    };
+
+    const ClickTarget = useClick(Study);
     
      const real = filterTodo.filter(todo => {
       return todo.category == categorys;
@@ -35,7 +62,6 @@ const Form = ({
           );
         
       });
-    
 
       
 
@@ -44,11 +70,23 @@ return(
 
 <div className="todoform">
 
-    <button className="category-button" onClick={onClick} value={categorys}>{categorys}</button>
+    <button 
+    ref={ClickTarget}
+    className="category-button" 
+    onClick={onClick} value={categorys}>
+        
+        <i class="fas fa-box"></i>
+        <p>{categorys}</p>
+        <i class="fas fa-plus-circle"></i>
+        
+    </button>
 
-    <form onSubmit={onSubmit} id={categorys} className="form">
+    <form onSubmit={onSubmit} id={categorys} className="form" >
+
+    <i class="fas fa-paw"></i>
     <input required minlength="1" type={text} placeholder={placeholder} value={value} onChange={onChange}/>
-    <button type='submit'>투두 작성 {categorys}</button>
+    <button type='submit' className="todoButton">+</button>
+
     </form>
 
 </div>

@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState,useEffect,useRef} from 'react';
 import TodoList from '../components/TodoList';
 import Form from '../components/Form';
 
@@ -6,6 +6,8 @@ import Form from '../components/Form';
 const Mon = ({
   settingday,
 }) => {
+
+  
 
     const [newtodo, setNewtodo] = useState('');
     const loadedTodos =  localStorage.getItem("todos");
@@ -66,7 +68,7 @@ const Mon = ({
     // );
   
 
-
+     // map 함수 form 생성
     const Forms = categorys.map(category => {
      
       return(
