@@ -53,6 +53,7 @@ const Weekly = (
 
   const [settingday,setSettingDay] = useState(dayArray[today]);
 
+  console.log(settingday);
 
   return(
         <>
@@ -82,7 +83,7 @@ const Weekly = (
           </li>
          
        
-        <li id='thu' className="week-day" onClick={() =>setSettingDay("thu")}>
+        <li id='thu' className="week-day" onClick={() =>setSettingDay("thr")}>
             <p id="day">목</p>
             <i class="fas fa-paw"></i>
             <p id="date" className="date thu-date">{dateArray[3]}</p>

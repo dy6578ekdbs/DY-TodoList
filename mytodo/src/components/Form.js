@@ -30,12 +30,6 @@ const Form = ({
 
 }) => {
 
-    const favoriteBtn = useRef(null);
-  const onFavoriteToggle = () => {
-    favoriteBtn.current.style.backgroundColor = '#959595';
-    favoriteBtn.current.style.border = '#959595';
-  } 
-
 
     const Study = (e)=> {
         
@@ -73,7 +67,9 @@ return(
     <button 
     ref={ClickTarget}
     className="category-button" 
-    onClick={onClick} value={categorys}>
+    onClick={onClick} 
+    value={categorys}
+    >
         
         <i class="fas fa-box"></i>
         <p>{categorys}</p>
@@ -85,6 +81,8 @@ return(
 
     <i class="fas fa-paw"></i>
     <input required minlength="1" type={text} placeholder={placeholder} value={value} onChange={onChange}/>
+    
+    
     <button type='submit' className="todoButton">+</button>
 
     </form>

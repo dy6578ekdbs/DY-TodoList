@@ -40,6 +40,8 @@
           
           $( '.week-day' ).click( 
             function(){
+             
+
                let id_check = $(this).attr("id");
                $("."+id_check+"-date" ).addClass("active");
               $( '.date' ).not( ".date."+id_check+"-date" ).removeClass("active");
@@ -50,8 +52,6 @@
           $( '.category-button' ).click( 
             function(){
             
-              console.log("클릭");
-
                let class_check = $(this).attr("value");
 
                $(".form" ).addClass("yes");
