@@ -69,11 +69,14 @@ return(
     className="category-button" 
     onClick={onClick} 
     value={categorys}
+    id={categorys}
     >
         
-        <i class="fas fa-box"></i>
-        <p>{categorys}</p>
-        <i class="fas fa-plus-circle"></i>
+        <i class="fas fa-box" id={categorys}></i>
+
+        <p id={categorys}>{categorys}</p>
+
+        <i class="fas fa-plus-circle" id={categorys}></i>
         
     </button>
 

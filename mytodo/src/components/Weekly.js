@@ -17,6 +17,7 @@ const Weekly = (
 
   let now = new Date();
 
+
   let year = now.getFullYear(); // 오늘 년도
   let month = now.getMonth() + 1; // 오늘 월
   let date = now.getDate(); // 오늘 날짜
@@ -35,17 +36,26 @@ const Weekly = (
   let test = new Date(year,month,0); // 이번달 마지막 날짜 구하기
   let last = test.getDate();
   
-
+  let preTest = new Date(year,month-1,0); // 이번달 마지막 날짜 구하기
+  let preLast = preTest.getDate();
+  
 
   let dateArray = [];
   let i;
   let a = 1;
+
+  if(start == 0){ 
+    dateArray.push(preLast);
+    start++;
+  }
+
   for(i=0;i<7;i++){
     if(start + i > last){
       dateArray.push(a);
       a++;
     }else{
-      dateArray.push(start + i);
+
+         dateArray.push(start + i);
     }
   }
 
@@ -53,7 +63,10 @@ const Weekly = (
 
   const [settingday,setSettingDay] = useState(dayArray[today]);
 
-  console.log(settingday);
+  
+  let NowToday = year.toString() + date.toString() + weekNum.toString() + settingday;
+
+  console.log(NowToday);
 
   return(
         <>
@@ -110,7 +123,7 @@ const Weekly = (
       </ul>
 
 
-      <Mon settingday={settingday}/>
+      <Mon settingday={settingday} NowToday={NowToday}/>
 
         </>
     );

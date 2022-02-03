@@ -5,6 +5,7 @@ import Form from '../components/Form';
 
 const Mon = ({
   settingday,
+  NowToday,
 }) => {
 
   
@@ -32,12 +33,16 @@ const Mon = ({
     const onSubmit = (event) => {
       event.preventDefault();
 
+      console.log("폼 제출된 순간",newcategory);
 
       setTodos([...todos,{
         text:newtodo,
         id:Date.now(),
+        date:NowToday,
         day:settingday,
+
         category:newcategory,
+
         check:false,
       }]);
 
@@ -49,10 +54,12 @@ const Mon = ({
       localStorage.setItem("todos", JSON.stringify(todos));}, [todos]);
   
    useEffect(() => {
+     
       setFilterTodo(
               
               todos.filter(todo => {
-          return todo.day === settingday;
+                
+          return todo.date === NowToday;
           })
           
           );
@@ -75,6 +82,7 @@ const Mon = ({
         <>
        
         <Form 
+          
           type='text'
           placeholder='task'
           value={newtodo}
@@ -83,11 +91,10 @@ const Mon = ({
 
 
           categorys={category.class}
-
-          onClick={(e)=>setNewCategory(e.target.value)}
+         
+          onClick={(e)=>setNewCategory(e.target.id)}
         removeTodo={removeTodo}
           filterTodo={filterTodo}
-        
           />
           
           </>
