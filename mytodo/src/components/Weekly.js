@@ -77,48 +77,48 @@ const Weekly = (
          
           <li id='mon' className="week-day" onClick={() => setSettingDay("mon")}>
             <p id="day">월</p>
-            <i class="fas fa-paw"></i>
+            <i class="fa-solid fa-cloud"></i>
             <p id="date" className="date mon-date"> {dateArray[0]} </p>
           </li>
          
        
           <li id='tue' className="week-day" onClick={() =>setSettingDay("tue")} >
             <p id="day">화</p>
-            <i class="fas fa-paw"></i>
+            <i class="fa-solid fa-cloud"></i>
             <p id="date" className="date tue-date">{dateArray[1]}</p>
           </li>
          
         
         <li id='wen' className="week-day" onClick={() =>setSettingDay("wen")}>
             <p id="day">수</p>
-            <i class="fas fa-paw"></i>
+            <i class="fa-solid fa-cloud"></i>
             <p id="date" className="date wen-date">{dateArray[2]}</p>
           </li>
          
        
         <li id='thu' className="week-day" onClick={() =>setSettingDay("thr")}>
             <p id="day">목</p>
-            <i class="fas fa-paw"></i>
+            <i class="fa-solid fa-cloud"></i>
             <p id="date" className="date thu-date">{dateArray[3]}</p>
           </li>
        
         <li id='fri' className="week-day" onClick={() =>setSettingDay("fri")}>
             <p id="day">금</p>
-            <i class="fas fa-paw"></i>
+            <i class="fa-solid fa-cloud"></i>
             <p id="date" className="date fri-date">{dateArray[4]}</p>
           </li>
         
         <li id='sat' className="week-day" onClick={() =>setSettingDay("sat")}>
             <p id="day">토</p>
-            <i class="fas fa-paw"></i>
+            <i class="fa-solid fa-cloud"></i>
             <p id="date" className="date sat-date">{dateArray[5]}</p>
           </li>
         
         <li id='sun' className="week-day" onClick={() =>setSettingDay("sun")}>
             <p id="day">일</p>
-            <i class="fas fa-paw"></i>
+            <i class="fa-solid fa-cloud"></i>
             <p id="date" className="date sun-date">{dateArray[6]}</p>
-          </li>
+        </li>
         
       </ul>
 

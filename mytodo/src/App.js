@@ -48,9 +48,11 @@ function App() {
       isOpen ?
 
       <menu ref={modalEl}>
-        <a>link</a>
-        <a>에에</a>
-        <a onClick={()=> closeMenu()}>x</a>
+        <a>설정</a>
+        <a>목표</a>
+        <a>간편 입력</a>
+        <a>보관함</a>
+        <a onClick={()=> closeMenu()}>뒤로가기</a>
       </menu> 
       
       : <></>
@@ -64,19 +66,9 @@ function App() {
       
       <Weekly />
     
-      {/* <Switch>
-                {routes.map(route => {
-                  return(
-                    <Route path={route.path} key={route.path} exact>
-                      <route.component settingday={settingday}/>
-                    </Route>
-                  )
-                })}
-      </Switch> */}
+ 
       
       
-
-
     </Router>
     </div>
   );

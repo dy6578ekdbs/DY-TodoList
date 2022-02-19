@@ -166,3 +166,7 @@ input {
   background-color: none;
   color: gray;
 }
+
+.fa-cloud {
+  color: rgb(209, 209, 209);
+}
