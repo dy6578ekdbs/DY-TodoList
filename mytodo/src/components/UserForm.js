@@ -1,4 +1,7 @@
 import React from "react";
+
+import {Link} from 'react-router-dom';
+
 const UserForm = ({
     onSubmit,
     text,
@@ -8,6 +11,7 @@ const UserForm = ({
     explain,
     writeExplain,
 }) => {
+
 return(
     <>
      <form onSubmit={onSubmit}>
@@ -17,7 +21,7 @@ return(
       
       <input required minlength="1" type={text} placeholder='설명' value={explain} onChange={writeExplain}/>
         <span>설명쓰세요</span>
-      <button type="submit" class="btn btn-warning">Login</button>
+     <button type="submit" class="btn btn-warning"  >Login</button>
     </form>
 
     </>

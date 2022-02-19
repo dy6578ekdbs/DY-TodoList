@@ -1,5 +1,8 @@
 import React, {useState,useEffect} from "react";
+import { Link } from "react-router-dom";
 import UserForm from "./UserForm";
+
+
 const User = ({
   
 }) => {
@@ -26,6 +29,10 @@ const User = ({
     localStorage.setItem("user", JSON.stringify(user));
     localStorage.setItem("explain", JSON.stringify(explain));
   },[user,explain])
+
+  const Home = () =>{
+    window.location.replace="/home";
+  }
   
   const onSubmitUser = (event) => {
    
@@ -33,6 +40,9 @@ const User = ({
     setNewuser('');
     setExplain(newexplain);
     setnewExplain('');
+
+    Home();
+   
   }
 
   const LogOut =()=>{
@@ -44,7 +54,7 @@ const User = ({
 return(
     <>
     {login ? 
-      
+   
       <UserForm
         type='text'
         placeholder='username'
@@ -54,12 +64,13 @@ return(
         writeExplain={(e) => setnewExplain(e.target.value)}
         onSubmit={onSubmitUser}
         /> 
-        
 
         :
         <> 
-        <p>{user} {explain}</p>
-        <button type="button" className={"btn btn-warning"} onClick={()=>LogOut()}>Logout</button>
+        <p>{user} {explain}으로 로그인 하시겠습니까?</p>
+        <Link type="button" className={"btn btn-warning"}  to="/home">Yes</Link>
+        
+        <Link type="button" className={"btn btn-warning"} onClick={()=>LogOut()} to="/">No</Link>
         </>
         }
 

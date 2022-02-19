@@ -59,9 +59,11 @@
 
           $( '.category-button' ).click( 
             function(){
+
+             
             
                let class_check = $(this).attr("value");
-
+                console.log("왜안돼",class_check);
                $(".form" ).addClass("yes");
 
               $( '.form' ).not( "#"+class_check).removeClass("yes");

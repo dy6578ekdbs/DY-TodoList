@@ -27,6 +27,8 @@ const Form = ({
     onClick,
     filterTodo,
     removeTodo,
+    deleteCategory,
+    id
 
 }) => {
 
@@ -91,6 +93,8 @@ return(
     </form>
 
 </div>
+
+<button onClick={() => deleteCategory(id)}>삭제</button>
 
     {What}
     </>

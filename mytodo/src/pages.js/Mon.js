@@ -1,5 +1,4 @@
 import React, {useState,useEffect,useRef} from 'react';
-import TodoList from '../components/TodoList';
 import Form from '../components/Form';
 
 
@@ -9,18 +8,35 @@ const Mon = ({
 }) => {
 
   
-
-    const [newtodo, setNewtodo] = useState('');
+     const [newtodo, setNewtodo] = useState('');
+     
     const loadedTodos =  localStorage.getItem("todos");
     const [todos, setTodos] = useState(JSON.parse(loadedTodos));
     const [filterTodo, setFilterTodo] = useState([]);
 
-    const [categorys,setCategorys] = useState([
-     {class:"study"},{class:"date"},{class:"work"},
-    
-    ]);
+    const loadedCategorys = localStorage.getItem("category");
 
-    const [newcategory,setNewCategory] = useState("");
+    const [categorys,setCategorys] = useState(JSON.parse(loadedCategorys)); 
+
+    const [newCategory,setNewCategory] = useState(null);
+
+    const addCategorys =(e)=> {
+     
+      setCategorys([...categorys,{class:newCategory,id:Date.now()}]);
+      setNewCategory("");
+    }
+
+    useEffect(()=>{
+      localStorage.setItem('category', JSON.stringify(categorys));
+    },[categorys]);
+
+    const removeCategory = (id) => {
+      setCategorys(categorys.filter(category => {
+        return category.id !== id;
+      }));
+    }
+
+    const [newCategoryTodo,setNewCategoryTodo] = useState("");
 
     const removeTodo = (id) => {
       setTodos(todos.filter(todo => {
@@ -33,15 +49,13 @@ const Mon = ({
     const onSubmit = (event) => {
       event.preventDefault();
 
-      console.log("폼 제출된 순간",newcategory);
-
       setTodos([...todos,{
         text:newtodo,
         id:Date.now(),
         date:NowToday,
         day:settingday,
 
-        category:newcategory,
+        category:newCategoryTodo,
 
         check:false,
       }]);
@@ -65,15 +79,6 @@ const Mon = ({
           );
      },[todos,settingday]);
   
-    // // todo 그리기
-    // const drawTodos = filterTodo.map(
-    //   todo =>{
-    //     return(
-    //      <TodoList todo={todo} key={todo.text} removeTodo={removeTodo}/>
-    //     );
-    //   }
-    // );
-  
 
      // map 함수 form 생성
     const Forms = categorys.map(category => {
@@ -91,10 +96,14 @@ const Mon = ({
 
 
           categorys={category.class}
+          id={category.id}
          
-          onClick={(e)=>setNewCategory(e.target.id)}
-        removeTodo={removeTodo}
+          onClick={(e)=>setNewCategoryTodo(e.target.id)}
+          removeTodo={removeTodo}
           filterTodo={filterTodo}
+
+          deleteCategory={removeCategory}
+
           />
           
           </>
@@ -108,6 +117,11 @@ const Mon = ({
       <div className='todoform'>
       
       <p>오늘은 {settingday}</p>
+
+      <form onSubmit={addCategorys}>
+        <input value={newCategory} onChange={(e)=> setNewCategory(e.target.value)} placeholder="카테고리 추가"/>
+        <button type='submit'>제출</button>
+      </form>
       
       {Forms}
         
