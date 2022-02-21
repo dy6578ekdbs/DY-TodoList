@@ -1,0 +1,239 @@
+#home-container {
+  height: 100vm;
+  padding: 15px;
+}
+
+.week {
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+}
+
+.week-day {
+  height: 50px;
+  width: 50px;
+
+  border : solid 1px rgb(216, 216, 216);
+  border-radius: 2px;
+
+  list-style: none;
+  margin: 3px;
+
+  text-align: center;
+
+
+}
+.week-day:active{
+  box-shadow: 1px 1px 0 rgb(0,0,0,0.5); 
+
+}
+#day {
+  margin:0px;
+  padding: 0px;
+}
+#date{
+  margin:0px;
+  padding: 0px;
+}
+
+navbar{
+  display: flex;
+  justify-content: flex-end;
+}
+
+navbar i{
+  margin: 15px;
+}
+
+menu{
+  margin: 0;
+  padding: 0;
+  float: right;
+  
+  background-color: rgb(255, 255, 255);
+  border:solid 1px;
+
+  width: 80vw;
+  height: 100%;
+  
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: -1em 0 .4em rgb(219, 219, 219);
+  
+
+  position:absolute;
+  top:0;
+  right: 0;
+
+}
+
+menu a {
+  margin-top: 20px;
+}
+
+.slide {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#user-button{
+  margin-right: 8px;
+  border-radius: 50%;
+}
+
+.user-info {
+  margin-top: 20px;
+  display: flex;
+} 
+
+.user-info  p{
+  margin-right: 10px;
+  
+}
+
+
+.active {
+  text-decoration: underline;
+  text-underline-position: under;
+  text-decoration-color: red;
+}
+
+
+
+
+
+
+.form {
+  display: none;
+}
+
+.yes {
+  display: flex;
+}
+
+
+
+.fa-cloud {
+  color: rgb(209, 209, 209);
+}
+
+
+
+#small-button {
+  border: none;
+  border-radius: 3px;
+
+  height: 30px;
+  width: 20px;
+
+  line-height: 30px;
+}
+
+.delete{
+  margin-left: 10px;
+}
+
+.input {
+  width: 80vw;
+  border: none;
+  border-bottom: solid rgb(218, 218, 218) 1px;
+  background-color: none;
+}
+
+.category-form {
+  margin-top: 30px;
+}
+
+.category-input {
+  margin-top: 10px;
+  margin-right: 10px;
+
+ 
+}
+
+.category-box{
+  display: flex; 
+  flex-direction: column;
+
+  margin-top: 30px;
+  align-items: center;
+  
+}
+
+
+.todoform{
+  width: 100vw;
+
+  padding-left: 20px;
+
+  display: flex;
+
+  justify-content:flex-start;
+  align-items: center;
+
+  
+
+}
+
+.category-button {
+
+  margin: 0;
+  width: 110px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+
+  border: solid 1px rgba(206, 206, 206, 0.2);
+
+  border-color: rgba(219, 217, 217,0.8);
+  border-radius: 3px;
+  background-color: rgba(219, 217, 217,0.4);
+}
+
+.category-button p {
+  margin: 0px;
+}
+
+.category-delete{
+  margin-left: 10px;
+}
+
+/*todo*/
+
+.todo{
+ align-items: center;
+}
+
+.todo i {
+  margin-right: 3px;
+  color: rgb(179, 179, 179);
+}
+.small-input {
+  width: 80vw;
+  
+}
+
+/*todolist*/
+.todolist {
+  display: flex;
+
+  align-items: center;
+
+}
+
+.todolist i{
+  margin-left: 10px;
+
+}
+
+.todolist span {
+  width: 75vw;
+  margin-left: 5px;
+  margin-top: 10px;
+}
+
+.todolist button {
+  height: 20px;
+}

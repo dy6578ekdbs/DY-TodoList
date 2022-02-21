@@ -1,7 +1,16 @@
 import React, { useEffect, useState,useRef } from 'react';
 import AfterLogin from '../components/AfterLogin';
-import User from '../components/User'
+import '../css/home.css';
 import Weekly from '../components/Weekly'
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  NavLink
+} from "react-router-dom";
+
 
 const Home =()=> {
 
@@ -20,23 +29,28 @@ const Home =()=> {
       setOpen(false);
       setStyle('');
     }
+    const LogOut =()=>{
+  
+      localStorage.removeItem("user");
+      localStorage.removeItem("explain");
+    }
   
     return (
   
       
   
-      <div id="body" className={`${style}`}>
+      <div className={`${style}`} id='home-container'>
         
       
       
-      <navbar >
+      <navbar>
          <i class="far fa-heart fa-lg"></i>
          <i class="fas fa-inbox fa-lg"></i> 
          <i class="fas fa-bars fa-lg" onClick={()=> openMenu()}></i>
       </navbar> 
   
-      <button id="user-button" type="button" class="btn btn-outline-secondary">O</button>
-      <button id="user-button" type="button" class="btn btn-outline-secondary">+</button>
+      <button id="user-button" type="button" class="btn btn-outline-secondary">M</button>
+      <button id="user-button" type="button" class="btn btn-outline-secondary">></button>
       
       {
         isOpen ?
@@ -46,6 +60,7 @@ const Home =()=> {
           <a>목표</a>
           <a>간편 입력</a>
           <a>보관함</a>
+          <Link to="/" type="button" onClick={()=>LogOut()}>로그아웃</Link>
           <a onClick={()=> closeMenu()}>뒤로가기</a>
         </menu> 
         

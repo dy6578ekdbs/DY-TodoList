@@ -1,4 +1,5 @@
 import React from "react";
+import '../css/userform.css';
 
 import {Link} from 'react-router-dom';
 
@@ -14,14 +15,14 @@ const UserForm = ({
 
 return(
     <>
-     <form onSubmit={onSubmit}>
+     <form onSubmit={onSubmit} className="login-form">
         
       <input required minlength="1" type={text} placeholder={placeholder} value={value} onChange={onChange}/>
-      <span>님의 이름</span>
+     
       
-      <input required minlength="1" type={text} placeholder='설명' value={explain} onChange={writeExplain}/>
-        <span>설명쓰세요</span>
-     <button type="submit" class="btn btn-warning"  >Login</button>
+      <input required minlength="1" type={text} placeholder='내 소개' value={explain} onChange={writeExplain}/>
+        
+     <button type="submit" id="login-form-button">로그인</button>
     </form>
 
     </>

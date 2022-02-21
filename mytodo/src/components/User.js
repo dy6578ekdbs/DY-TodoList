@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from "react";
 import { Link } from "react-router-dom";
 import UserForm from "./UserForm";
+import '../css/login.css';
 
 
 const User = ({
@@ -57,7 +58,7 @@ return(
    
       <UserForm
         type='text'
-        placeholder='username'
+        placeholder='내 별명'
         value={newuser}
         explain={newexplain}
         onChange={(e) => setNewuser(e.target.value)}
@@ -67,10 +68,18 @@ return(
 
         :
         <> 
-        <p>{user} {explain}으로 로그인 하시겠습니까?</p>
-        <Link type="button" className={"btn btn-warning"}  to="/home">Yes</Link>
         
-        <Link type="button" className={"btn btn-warning"} onClick={()=>LogOut()} to="/">No</Link>
+        <div className="text-container">
+          <span>{user}</span>
+          <span>{explain}</span>
+          <p>로 로그인 할까요?</p>
+        </div>
+
+        <div className="buttons">
+        <Link type="button" className="check-btn"  to="/home">네</Link>
+        
+        <Link type="button" className="check-btn" onClick={()=>LogOut()} to="/">아뇨</Link>
+        </div>
         </>
         }
 

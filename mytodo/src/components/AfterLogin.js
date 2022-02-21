@@ -16,12 +16,11 @@ const AfterLogin = () => {
   }
 
 return(
-    <>
-    <div>{loadedUser}</div>
-    <div>{loadedExplain}</div>
-    <Link type="button" className={"btn btn-warning"} onClick={()=>LogOut()} to="/">LogOut</Link>
+    <div className="user-info">
+    <p>{loadedUser}</p>
+    <p>{loadedExplain}</p>
   
-    </>
+    </div>
 );
 };
 

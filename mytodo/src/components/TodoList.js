@@ -8,9 +8,10 @@ const TodoList = ({
     return(
        
         <> 
-        <div style={{display:'flex', border:'2px gray solid', margin:'3px',padding:'3px'}}>
-        <div>{todo.text}</div>
-        <button onClick={() => removeTodo(todo.id)}>삭제</button>
+        <div className="todolist">
+            <i class="fa-solid fa-cloud"></i>
+            <span>{todo.text}</span>
+            <button id="small-button" onClick={() => removeTodo(todo.id)}>-</button>
         </div>
         </>
     );

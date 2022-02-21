@@ -114,13 +114,12 @@ const Mon = ({
     return (
       <>
       
-      <div className='todoform'>
+      <div className='category-form'>
       
-      <p>오늘은 {settingday}</p>
 
       <form onSubmit={addCategorys}>
-        <input value={newCategory} onChange={(e)=> setNewCategory(e.target.value)} placeholder="카테고리 추가"/>
-        <button type='submit'>제출</button>
+        <input className="input category-input" value={newCategory} onChange={(e)=> setNewCategory(e.target.value)} placeholder="카테고리 추가"/>
+        <button type='submit' id="small-button">+</button>
       </form>
       
       {Forms}

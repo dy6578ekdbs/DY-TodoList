@@ -63,39 +63,40 @@ const Form = ({
 
 return(
     <>
+<div className="category-box">
 
-<div className="todoform">
+    <div className="todoform">
 
-    <button 
-    ref={ClickTarget}
-    className="category-button" 
-    onClick={onClick} 
-    value={categorys}
-    id={categorys}
-    >
+        <button 
+        ref={ClickTarget}
+        className="category-button" 
+        onClick={onClick} 
+        value={categorys}
+        id={categorys}
+        >
         
-        <i class="fas fa-box" id={categorys}></i>
-
-        <p id={categorys}>{categorys}</p>
-
-        <i class="fas fa-plus-circle" id={categorys}></i>
+            <i class="fas fa-box" id={categorys}></i>
+            <p id={categorys}>{categorys}</p>
+            <i class="fas fa-plus-circle" id={categorys}></i>
         
-    </button>
+        </button>
 
-    <form onSubmit={onSubmit} id={categorys} className="form" >
+        <button onClick={() => deleteCategory(id)} id="small-button" className="delete">x</button>
 
-    <i class="fas fa-paw"></i>
-    <input required minlength="1" type={text} placeholder={placeholder} value={value} onChange={onChange}/>
-    
-    
-    <button type='submit' className="todoButton">+</button>
+    </div>
+
+
+    <form onSubmit={onSubmit} id={categorys} className="todo form" >
+
+        <i class="fas fa-paw"></i>
+        <input  className="input small-input" required minlength="1" type={text} placeholder={placeholder} value={value} onChange={onChange}/>
+      
 
     </form>
 
+
+
 </div>
-
-<button onClick={() => deleteCategory(id)}>삭제</button>
-
     {What}
     </>
 );
